@@ -1,0 +1,13 @@
+--Creamos una tabla llamada logs
+CREATE TABLE logs (
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    Timestamp DATETIME,
+    Service_name VARCHAR(255),
+    Log_level VARCHAR(50),
+    Message NVARCHAR(MAX),
+    received_at DATETIME
+);
+
+
+ALTER TABLE logs
+ADD received_at DATETIME; --Marcuando el log es recibido por el servidor
