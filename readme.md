@@ -25,17 +25,18 @@ CREATE TABLE logs (
     received_at DATETIME --- the time at which the log is received by the server
 );
 ```
+
 ## Define your environment variables
 
 Create a '.env' file in the root directory and add the following environment variables:
 Example:
-    ```env
-    API_KEY=your_api_key
-    DATABASE=your_database
-    USER=your_user
-    PASSWORD=your_password
-    ```
 
+```.env
+    API_KEY=tu_api_key
+    DATABASE=tu_base_de_datos
+    USER=tu_usuario
+    PASSWORD=tu_contraseña
+```
 
 ## Usage
 
@@ -50,21 +51,23 @@ To interact with the API, you must send HTTP requests with the following headers
 Here is an example of how to submit a record to the API:
 
 **Solicitud**
-```http
-POST /logs HTTP/1.1
-Host: localhost:5000
-Content-Type: application/json
-x-api-key: your_api_key
 
-{
-  "timestamp": "2024-08-04T12:34:56.789Z",
-  "service_name": "Service1",
-  "log_level": "info",
-  "message": "This is an info message from Service1"
-}
+```
+    http
+    POST /logs HTTP/1.1
+    Host: localhost:5000
+    Content-Type: application/json
+    x-api-key: your_api_key
 
+    {
+      "timestamp": "2024-08-04T12:34:56.789Z",
+      "service_name": "Service1",
+      "log_level": "info",
+      "message": "This is an info message from Service1"
+    }
+```
 
-# Examples
+**Examples:**
 To send logs, use the provided sendLog.py script. This script generates random logs and sends them to the API.
 
 Querying Logs
@@ -73,4 +76,8 @@ To query logs, send a GET request to the /logs endpoint with optional query para
 To obteing logs from the server, make a GET request:
 try this:
 
-http://localhost:5000/logs?start_timestamp=2024-08-07&end_timestamp=2024-08-10
+´´´
+
+    localhost:5000/logs?start_timestamp=2024-08-07&end_timestamp=2024-08-10
+
+´´´
